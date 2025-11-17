@@ -1,0 +1,25 @@
+healthlink-mvp/
+├─ backend/
+│  ├─ package.json
+│  ├─ server.js
+│  ├─ config/db.js
+│  ├─ models/Patient.js
+│  ├─ models/Triage.js
+│  ├─ controllers/patientController.js
+│  ├─ controllers/triageController.js
+│  ├─ routes/patientRoutes.js
+│  └─ routes/triageRoutes.js
+├─ frontend/
+│  ├─ package.json
+│  ├─ index.html
+│  ├─ vite.config.js
+│  ├─ tailwind.config.js
+│  ├─ postcss.config.js
+│  └─ src/
+│     ├─ main.jsx
+│     ├─ App.jsx
+│     ├─ index.css
+│     ├─ components/Navbar.jsx
+│     ├─ components/Card.jsx
+│     └─ pages/{Register,Login,Dashboard,TriageForm}.jsx
+└─ .env.example

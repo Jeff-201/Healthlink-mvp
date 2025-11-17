@@ -1,0 +1,362 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* === Base Layout & Mobile First === */
+html {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  @apply bg-gray-50 text-gray-900 antialiased;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* === Responsive Typography === */
+@screen sm {
+  html { font-size: 17px; }
+}
+
+@screen md {
+  html { font-size: 18px; }
+}
+
+@screen lg {
+  html { font-size: 19px; }
+}
+
+/* === Dark Mode ===
+   Tailwind dark mode uses the `.dark` class on <html> by default.
+   To toggle, add/remove `.dark` on the <html> element via JS.
+*/
+.dark body {
+  @apply bg-gray-900 text-gray-100;
+}
+
+/* === Mobile-First Button System === */
+.btn {
+  @apply inline-flex items-center justify-center font-medium rounded-xl transition-all duration-300
+         focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed
+         min-h-[44px] touch-manipulation;
+}
+
+.btn-primary {
+  @apply bg-gradient-to-r from-blue-500 to-purple-600 text-white
+         hover:from-blue-600 hover:to-purple-700 focus:ring-blue-500
+         shadow-lg hover:shadow-xl transform hover:scale-105;
+}
+
+.btn-secondary {
+  @apply bg-gray-100 text-gray-700 hover:bg-gray-200 focus:ring-gray-500;
+}
+
+.btn-success {
+  @apply bg-green-600 text-white hover:bg-green-700 focus:ring-green-500;
+}
+
+.btn-danger {
+  @apply bg-red-600 text-white hover:bg-red-700 focus:ring-red-500;
+}
+
+.btn-ghost {
+  @apply text-blue-600 hover:bg-blue-50 focus:ring-blue-500;
+}
+
+.btn-sm { @apply px-3 py-2 text-sm; }
+.btn-md { @apply px-4 py-2 text-base; }
+.btn-lg { @apply px-6 py-3 text-lg; }
+
+/* === Mobile-First Forms === */
+.form-input {
+  @apply w-full px-4 py-3 border-2 border-gray-200 rounded-xl
+         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
+         bg-white transition-all duration-300 text-base;
+  min-height: 44px; /* Touch target */
+}
+
+.form-input:hover {
+  @apply border-gray-300;
+}
+
+.form-input:focus {
+  @apply bg-blue-50 border-blue-300;
+}
+
+.form-label {
+  @apply block text-sm font-medium text-gray-700 mb-2;
+}
+
+.form-group {
+  @apply mb-6;
+}
+
+/* === Mobile-First Card System === */
+.card {
+  @apply bg-white rounded-2xl shadow-lg border border-gray-100
+         transition-all duration-300 overflow-hidden;
+}
+
+.card-hover {
+  @apply hover:shadow-2xl hover:-translate-y-1 hover:scale-105;
+}
+
+.card-body {
+  @apply p-4 sm:p-6;
+}
+
+@screen md {
+  .card-body {
+    @apply p-6;
+  }
+}
+
+/* === Mobile-First Navigation === */
+.navbar {
+  @apply bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200/50
+         transition-all duration-300;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+@screen sm {
+  .navbar {
+    @apply px-4;
+  }
+}
+
+@screen lg {
+  .navbar {
+    @apply px-6;
+  }
+}
+
+/* === Mobile-First Grid System === */
+.grid-responsive {
+  @apply grid grid-cols-1 gap-4;
+}
+
+@screen sm {
+  .grid-responsive {
+    @apply grid-cols-2 gap-6;
+  }
+}
+
+@screen md {
+  .grid-responsive {
+    @apply grid-cols-3 gap-6;
+  }
+}
+
+@screen lg {
+  .grid-responsive {
+    @apply grid-cols-4 gap-6;
+  }
+}
+
+/* === Mobile-First Modals === */
+.modal-overlay {
+  @apply fixed inset-0 bg-black/50 backdrop-blur-sm z-50;
+}
+
+.modal-content {
+  @apply bg-white rounded-2xl shadow-2xl max-w-full mx-4
+         transform transition-all duration-300;
+}
+
+@screen sm {
+  .modal-content {
+    @apply mx-auto max-w-lg;
+  }
+}
+
+@screen md {
+  .modal-content {
+    @apply max-w-2xl;
+  }
+}
+
+/* === Mobile-First Tables === */
+.table-responsive {
+  @apply overflow-x-auto -mx-4 sm:mx-0;
+}
+
+.table {
+  @apply w-full border-collapse;
+}
+
+.table th, .table td {
+  @apply px-3 py-3 text-left border-b border-gray-200;
+  min-height: 44px; /* Touch target */
+}
+
+@screen sm {
+  .table th, .table td {
+    @apply px-4 py-4;
+  }
+}
+
+.table th {
+  @apply bg-gray-50 font-semibold text-gray-900;
+}
+
+.table-row:hover {
+  @apply bg-gray-50;
+}
+
+/* === Mobile-First Alerts === */
+.alert {
+  @apply p-4 mb-4 rounded-xl font-medium border-l-4;
+}
+
+.alert-success {
+  @apply bg-green-50 text-green-800 border-green-500;
+}
+
+.alert-error {
+  @apply bg-red-50 text-red-800 border-red-500;
+}
+
+.alert-warning {
+  @apply bg-yellow-50 text-yellow-800 border-yellow-500;
+}
+
+.alert-info {
+  @apply bg-blue-50 text-blue-800 border-blue-500;
+}
+
+/* === Loading States === */
+.spinner {
+  @apply border-4 border-gray-200 border-t-blue-600 rounded-full animate-spin;
+}
+
+.spinner-sm { @apply w-4 h-4; }
+.spinner-md { @apply w-8 h-8; }
+.spinner-lg { @apply w-12 h-12; }
+
+/* === Skeleton Loading === */
+.skeleton {
+  @apply animate-pulse bg-gray-200 rounded;
+}
+
+.skeleton-text {
+  @apply skeleton h-4 mb-2;
+}
+
+.skeleton-title {
+  @apply skeleton h-6 mb-4;
+}
+
+.skeleton-avatar {
+  @apply skeleton w-10 h-10 rounded-full;
+}
+
+/* === Toast Notifications === */
+.toast {
+  @apply fixed z-50 transition-all duration-300 transform
+         max-w-sm w-full mx-4;
+}
+
+.toast-top-right {
+  @apply top-4 right-4;
+}
+
+.toast-bottom-right {
+  @apply bottom-4 right-4;
+}
+
+.toast-content {
+  @apply bg-gray-800 text-white px-4 py-3 rounded-xl shadow-2xl
+         flex items-center space-x-3;
+}
+
+/* === Mobile-First Utilities === */
+.container-responsive {
+  @apply w-full mx-auto px-4;
+}
+
+@screen sm {
+  .container-responsive {
+    @apply max-w-2xl px-4;
+  }
+}
+
+@screen md {
+  .container-responsive {
+    @apply max-w-4xl px-6;
+  }
+}
+
+@screen lg {
+  .container-responsive {
+    @apply max-w-6xl px-8;
+  }
+}
+
+@screen xl {
+  .container-responsive {
+    @apply max-w-7xl;
+  }
+}
+
+/* === Touch Interactions === */
+@media (hover: none) and (pointer: coarse) {
+  .btn:hover {
+    @apply transform-none;
+  }
+  
+  .card-hover:hover {
+    @apply transform-none shadow-lg;
+  }
+}
+
+/* === Safe Area for Mobile === */
+@supports (padding: max(0px)) {
+  .safe-area-top {
+    padding-top: max(1rem, env(safe-area-inset-top));
+  }
+  
+  .safe-area-bottom {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+}
+
+/* === Accessibility Improvements === */
+.sr-only {
+  @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
+}
+
+/* Focus visible for better keyboard navigation */
+.focus-visible:focus {
+  @apply outline-none ring-2 ring-blue-500 ring-offset-2;
+}
+
+/* === Reduced Motion === */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* === Print Styles === */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .card {
+    @apply shadow-none border border-gray-300;
+  }
+}
