@@ -6,6 +6,9 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import TriageForm from './pages/TriageForm';
+import BookAppointment from './pages/BookAppointment';
+import ViewRecords from './pages/ViewRecords';
+import ContactSupport from './pages/ContactSupport';
 
 export default function App() {
   return (
@@ -18,6 +21,9 @@ export default function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/triage' element={<TriageForm />} />
+          <Route path='/book-appointment' element={<BookAppointment />} />
+          <Route path='/view-records' element={<ViewRecords />} />
+          <Route path='/contact-support' element={<ContactSupport />} />
         </Routes>
       </main>
     </div>

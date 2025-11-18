@@ -22,17 +22,23 @@ export default function Login() {
     setError('');
     setLoading(true);
 
-    try {
-      // Add your login API call here
-      // For now, simulate a successful login
-      setTimeout(() => {
+    // Simple validation - check if credentials match demo account
+    const demoEmail = 'demo@healthlink.com';
+    const demoPassword = 'demo123';
+
+    setTimeout(() => {
+      if (formData.email === demoEmail && formData.password === demoPassword) {
+        // Successful login
         setLoading(false);
+        localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem('userEmail', formData.email);
         navigate('/dashboard');
-      }, 1000);
-    } catch (err) {
-      setError('Invalid email or password');
-      setLoading(false);
-    }
+      } else {
+        // Failed login
+        setError('Invalid email or password. Try demo@healthlink.com / demo123');
+        setLoading(false);
+      }
+    }, 1000);
   };
 
   return (
