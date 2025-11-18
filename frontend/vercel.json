@@ -5,12 +5,18 @@
       "destination": "/index.html"
     }
   ],
-  "buildCommand": "npx vite build",
+  "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "framework": "vite",
   "installCommand": "npm install",
   "devCommand": "npm run dev",
   "env": {
-    "NODE_OPTIONS": "--max_old_space_size=4096"
+    "NODE_OPTIONS": "--max_old_space_size=4096",
+    "VITE_PRESERVE_SYMLINKS": "true"
+  },
+  "functions": {
+    "app/api/**/*.js": {
+      "runtime": "nodejs18.x"
+    }
   }
 }
