@@ -2,6 +2,13 @@
 
 A comprehensive healthcare management platform built with React, Vite, TailwindCSS, and Node.js.
 
+vercel deployment link:
+
+https://healthlink-gold.vercel.app/
+render deployment link
+
+https://healthlink-ixpb.onrender.com/
+
 ## 🚀 Features
 
 - **Modern Frontend**: React 18 + Vite + TailwindCSS
