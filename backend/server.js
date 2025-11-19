@@ -1,27 +1,53 @@
-import express from 'express';
-import dotenv from 'dotenv';
-import cors from 'cors';
-import patientRoutes from './routes/patientRoutes.js';
-import triageRoutes from './routes/triageRoutes.js';
-import { connectDB } from './config/db.js';
+import express from "express";
+import dotenv from "dotenv";
+import cors from "cors";
+import patientRoutes from "./routes/patientRoutes.js";
+import triageRoutes from "./routes/triageRoutes.js";
+import { connectDB } from "./config/db.js";
 
-const app = express();
 dotenv.config();
 
-app.use(cors());
+const app = express();
+
+// ---------------------
+// CORS CONFIG
+// ---------------------
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",                // local development
+      "https://healthlink-gold.vercel.app",  // your deployed frontend
+    ],
+    credentials: true,
+  })
+);
+
+// For JSON body parsing
 app.use(express.json());
 
-const PORT = process.env.PORT || 5000;
-
-// Connect to MongoDB using the centralized function
+// ---------------------
+// DATABASE CONNECTION
+// ---------------------
 connectDB();
 
-// Example route
+// ---------------------
+// TEST ROUTE
+// ---------------------
 app.get("/", (req, res) => {
   res.send("HealthLink API is running successfully 🚀");
 });
 
-app.use('/api/patients', patientRoutes);
-app.use('/api/triage', triageRoutes);
+// ---------------------
+// API ROUTES
+// ---------------------
+app.use("/api/patients", patientRoutes);
+app.use("/api/triage", triageRoutes);
 
-app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
+// ---------------------
+// START SERVER
+// ---------------------
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () =>
+  console.log(✅ Server running on port ${PORT})
+);

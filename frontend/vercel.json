@@ -1,7 +1,7 @@
 {
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/((?!api).*)",
       "destination": "/index.html"
     }
   ],
@@ -13,5 +13,10 @@
   "env": {
     "NODE_OPTIONS": "--max_old_space_size=4096",
     "VITE_PRESERVE_SYMLINKS": "true"
+  },
+  "functions": {
+    "app/api/**/*.js": {
+      "runtime": "nodejs18.x"
+    }
   }
 }
